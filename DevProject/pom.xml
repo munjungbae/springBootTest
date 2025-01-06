@@ -71,9 +71,8 @@
 			<groupId>jakarta.servlet.jsp.jstl</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
 		</dependency>
-
+		
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
