@@ -23,7 +23,6 @@ import lombok.ToString;
 
 
 @Data // 위의 lombok기반 어노테이션 통합본
-@Builder
 public class Board {
 	private int boardNo;
 	private String title;

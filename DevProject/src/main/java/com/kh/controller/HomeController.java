@@ -28,7 +28,7 @@ public class HomeController {
 //		DateFormat df = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 //		String formatedDate = df.format(date);
 //		model.addAttribute("작업시간", formatedDate);
-////		log.info(model.toString());
+//		log.info(model.toString());
 //		System.out.println(model);
 //		logger.info("logger = "+model.toString());
 //		
@@ -41,17 +41,39 @@ public class HomeController {
 //	
 //	@GetMapping(value = "/ajaxHome")
 //	public String ajaxHome() {
-//		
 //		return "ajaxHome";
 //	}
-	
-	@RequestMapping("/form")
-	public String formHome() {
-		return "form";
+//	@GetMapping(value = "/ajaxHome2")
+//	public String ajaxHome2() {
+//		return "XmlHome";
+//	}
+//	@GetMapping(value = "/ajaxHome3")
+//	public String ajaxHome3() {
+//		return "ajaxHome2";
+//	}
+	@GetMapping(value = "/ajaxHome4")
+	public String ajaxHome4() {
+		return "ajaxHome3";
 	}
 	
-	@RequestMapping("/listBoard")
-	public String list() {
-		return "/board/listBoard";
+	@GetMapping(value = "/goHome01")
+	public String goHome01() {
+		log.info("redirect:/goHome02");
+		return "redirect:/goHome02";
 	}
+	@GetMapping(value = "/goHome02")
+	public String goHome02() {
+		log.info("goHome02");
+		return "Home";
+	}
+	
+//	@RequestMapping("/form")
+//	public String formHome() {
+//		return "form";
+//	}
+//	
+//	@RequestMapping("/listBoard")
+//	public String list() {
+//		return "/board/listBoard";
+//	}
 }
