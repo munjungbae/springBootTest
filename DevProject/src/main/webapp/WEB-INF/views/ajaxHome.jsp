@@ -42,7 +42,10 @@
 				success : (result) => {
 					console.log("result : " + result);
 					if (result === "SUCCESS") {
-						alert("성공했습니다." + result);
+						alert("성공했습니다." + boardObj.boardNo);
+						alert("성공했습니다." + boardObj.title);
+						alert("성공했습니다." + boardObj.content);
+						alert("성공했습니다." + boardObj.writer);
 					}
 				}
 			})
