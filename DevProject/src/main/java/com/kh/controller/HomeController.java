@@ -104,11 +104,24 @@ public class HomeController {
 //	public String list() {
 //		return "/board/listBoard";
 //	}
-	
-	
-	@RequestMapping(value="/memberInsert", method=RequestMethod.GET) 
+
+	@RequestMapping(value = "/memberInsert", method = RequestMethod.GET)
 	public String memberInsert() {
 		return "memberInsert";
 	}
 
+	@RequestMapping(value = "/registerFileUpForm", method = RequestMethod.GET)
+	public String registerFileUpForm() {
+		return "registerFileUpForm";
+	}
+
+	@RequestMapping(value = "/ajaxHome5", method = RequestMethod.GET)
+	public String ajaxHome5() {
+		return "ajaxHome4";
+	}
+	
+	@RequestMapping(value = "/ajaxHome6", method = RequestMethod.GET)
+	public String ajaxHome6() {
+		return "ajaxHome5";
+	}
 }

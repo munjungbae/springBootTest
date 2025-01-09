@@ -8,5 +8,7 @@
 </head>
 <body>
 	<h1>hello spring boot</h1>
+	<div>userId : ${userId}</div>
+	<div>password : ${password}</div>
 </body>
 </html>
