@@ -43,6 +43,16 @@ public class HomeController {
 //		return "Home"; //즉 해당 위치의 Home.jsp호출 => /WEB-INF/views/Home.jsp
 //		
 //	}
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home(Locale locale, Model model) {
+		log.info("환영합니다. 클라이언트 지역은 " + locale + "이다.");
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		String formattedDate = dateFormat.format(date);
+		model.addAttribute("serverTime", formattedDate);
+		return "Home"; // 뷰 파일명
+	}
+
 //	
 //	@GetMapping(value = "/ajaxHome")
 //	public String ajaxHome() {
@@ -119,7 +129,7 @@ public class HomeController {
 	public String ajaxHome5() {
 		return "ajaxHome4";
 	}
-	
+
 	@RequestMapping(value = "/ajaxHome6", method = RequestMethod.GET)
 	public String ajaxHome6() {
 		return "ajaxHome5";
