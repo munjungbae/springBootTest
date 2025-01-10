@@ -1,6 +1,7 @@
 package com.kh.controller;
 
 import java.io.File;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -128,6 +131,66 @@ public class MemberController {
 		log.info("member.getUserName() = " + member.getUserName());
 		log.info("member.getEmail() = " + member.getEmail());
 		return "errorsResult";
+	}
+
+	@RequestMapping(value = "/registerValidation", method = RequestMethod.POST)
+	public String registerValidation(@Validated Member member, BindingResult result) {
+		log.info("registerValidation");
+		if (result.hasErrors()) {
+			return "registerValidationForm"; // 뷰 파일명
+		}
+		log.info("member.getUserId() = " + member.getUserId());
+		log.info("member.getUserName() = " + member.getUserName());
+		log.info("member.getGender() = " + member.getGender());
+		return "Home";
+	}
+
+	@RequestMapping(value = "/registerValidationForm01", method = RequestMethod.GET)
+	public String registerForm01(Model model) {
+		log.info("registerValidationForm01");
+		model.addAttribute("member", new Member());
+		return "registerValidationForm"; // 뷰 파일명
+	}
+
+	@RequestMapping(value = "/registerValidation2", method = RequestMethod.POST)
+	public String registerValidation2(@Validated Member member, BindingResult result) {
+		log.info("registerValidation2");
+		// 입력값 검증 에러가 발생한 경우 true를 반환한다.
+		log.info("result.hasErrors() = " + result.hasErrors());
+		// 입력값 검증 후 BindingResult가 제공하는 메서드를 이용하여 검사 결과를 확인한다.
+		if (result.hasErrors()) {
+			List<ObjectError> allErrors = result.getAllErrors();
+			List<ObjectError> globalErrors = result.getGlobalErrors();
+			List<FieldError> fieldErrors = result.getFieldErrors();
+			log.info("allErrors.size() = " + allErrors.size());
+			log.info("globalErrors.size() = " + globalErrors.size());
+			log.info("fieldErrors.size() = " + fieldErrors.size());
+			for (int i = 0; i < allErrors.size(); i++) {
+				ObjectError objectError = allErrors.get(i);
+				log.info("allError = " + objectError);
+			}
+			for (int i = 0; i < globalErrors.size(); i++) {
+				ObjectError objectError = globalErrors.get(i);
+				log.info("globalError = " + objectError);
+			}
+			for (int i = 0; i < fieldErrors.size(); i++) {
+				FieldError fieldError = fieldErrors.get(i);
+				log.info("fieldError = " + fieldError);
+				log.info("fieldError.getDefaultMessage() = " + fieldError.getDefaultMessage());
+			}
+			return "registerValidationForm2";
+		}
+		log.info("member.getUserId() = " + member.getUserId());
+		log.info("member.getGender() = " + member.getGender());
+		log.info("member.getDateOfBirth() = " + member.getDateOfBirth());
+		return "Home";
+	}
+
+	@RequestMapping(value = "/registerValidationForm2", method = RequestMethod.GET)
+	public String registerValidation2Form01(Model model) {
+		log.info("registerValidation2Form01");
+		model.addAttribute("member", new Member());
+		return "registerValidationForm2";
 	}
 
 }
