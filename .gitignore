@@ -1,3 +1,5 @@
 /.metadata/
 *.gitattributes
 *.gitignore
+*.cmd
+SpringMybatisProject/mvnw
