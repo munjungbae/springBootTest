@@ -1,1 +1,3 @@
 /.metadata/
+*.gitattributes
+*.gitignore
