@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- mapUnderscoreToCamelCase 프로퍼티 값을 true 로 지정 -->
+	<settings>
+		<!-- 오라클 내에 Underscroe( " _ " )가 있으면 그 값을 카멜표기법으로 설정하겠다는 환경설정-->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
+	<typeAliases>
+		<typeAlias alias="board" type="com.zeus.domain.Board" />
+		<package name="com.zeus.domain" />
+	</typeAliases>
+</configuration>

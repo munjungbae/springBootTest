@@ -3,3 +3,12 @@
 *.gitignore
 *.cmd
 SpringMybatisProject/mvnw
+*.classpath
+*.factorypath
+*.project
+*.MF
+MunProject/mvnw
+*.prefs
+SpringJbdcBoard/target/classes/META-INF/maven/com.board/SpringJbdcBoard/pom.properties
+SpringJpaBoard/target/classes/META-INF/maven/com.kh.board/SpringJpaBoard/pom.properties
+SpringMybatisProject/target/classes/META-INF/maven/com.zeus/SpringMybatisProject/pom.properties
