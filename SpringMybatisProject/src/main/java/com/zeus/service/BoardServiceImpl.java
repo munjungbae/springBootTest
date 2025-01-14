@@ -11,7 +11,7 @@ import com.zeus.mapper.BoardMapper;
 
 @Service
 public class BoardServiceImpl implements BoardService {
-	
+
 	@Autowired
 	private BoardMapper mapper;
 
@@ -43,6 +43,11 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<Board> list() throws Exception {
 		return mapper.list();
+	}
+
+	@Override
+	public List<Board> search(String title) throws Exception {
+		return mapper.search(title);
 	}
 
 }

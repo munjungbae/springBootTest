@@ -26,7 +26,7 @@
 	<form:form modelAttribute="board" action="/board/register">
 		<table>
 			<tr>
-				<td>Title</td>
+				<td><spring:message code="board.title" /></td>
 				<td><form:input path="title" /></td>
 				<td><font color="red"><form:errors path="title" /></font></td>
 			</tr>

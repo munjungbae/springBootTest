@@ -22,4 +22,16 @@
 			SELECT board_no, title, content, writer, reg_date FROM mybatisboard WHERE board_no > 0 ORDER BY board_no DESC, reg_date DESC
 		]]>
 	</select>
+
+	<select id="search" resultType="Board">
+		<![CDATA[ 
+			SELECT board_no, title, content, writer, reg_date FROM mybatisboard WHERE board_no > 0
+		]]>
+		<if test="title != null and title != ''">
+			AND title LIKE CONCAT('%', CONCAT(#{title}, '%'))
+		</if>
+		<![CDATA[ 
+			ORDER BY board_no DESC, reg_date DESC
+		]]>
+	</select>
 </mapper>
