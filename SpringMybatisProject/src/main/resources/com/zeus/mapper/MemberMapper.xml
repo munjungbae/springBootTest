@@ -28,6 +28,17 @@
 	<select id="list" resultType="Member">
 		SELECT user_no, user_id, user_pw, user_name, reg_date FROM mybatismember ORDER BY reg_date DESC
 	</select>
+	<select id="search" resultType="Member">
+			<![CDATA[
+		SELECT user_no, user_id, user_pw, user_name, reg_date FROM mybatismember
+		]]>
+		<if test="userId != null and userId != ''">
+			WHERE user_id like concat('%', concat(#{userId}, '%'))
+		</if> 
+		 <![CDATA[
+		 ORDER BY reg_date DESC
+		 ]]>
+	</select>
 	<update id="update">
 		UPDATE mybatismember SET user_name =#{userName} WHERE user_no = #{userNo}
 	</update>

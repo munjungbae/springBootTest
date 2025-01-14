@@ -10,7 +10,7 @@
 <script>
 	$(document).ready(function() {
 		$("#btnList").on("click", function() {
-			self.location = "/user/list";
+			self.location = "/item/list";
 		});
 	});
 </script>

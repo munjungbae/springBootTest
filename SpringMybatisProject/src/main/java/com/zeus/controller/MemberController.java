@@ -26,6 +26,14 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 
+	
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	public String search(Member member, Model model) throws Exception {
+		model.addAttribute("member", member);
+		model.addAttribute("list", service.search(member.getUserId()));
+		return "user/list";
+	}
+	
 	//사용자 입력 폼 요청
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public void registerForm(Member member, Model model) throws Exception {
@@ -42,6 +50,7 @@ public class MemberController {
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void list(Model model) throws Exception {
+		model.addAttribute(new Member());
 		model.addAttribute("list", service.list());
 	}
 

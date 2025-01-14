@@ -66,4 +66,9 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.list();
 	}
 
+	@Override
+	public List<Member> search(String userId) throws Exception {
+		return mapper.search(userId);
+	}
+
 }
