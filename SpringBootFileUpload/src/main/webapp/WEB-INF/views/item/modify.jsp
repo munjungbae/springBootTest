@@ -6,8 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>파일 업로드</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 	$(document).ready(function() {
 		var formObj = $("#item");
@@ -19,7 +18,7 @@
 		$("#btnList").on("click", function() {
 			self.location = "/item/list";
 		});
-		$("#btnDelete").on("click", function() {
+		$("#file").on("change", function() {
 			formObj.attr("action", "/item/delete");
 			formObj.attr("method", "post");
 			formObj.submit();
@@ -47,7 +46,7 @@
 			<tr>
 				<td>파일</td>
 				<td><img src="/item/display?itemId=${item.itemId}" width="410"
-					height="240"></td>
+					height="240" id="file"></td>
 			</tr>
 			<tr>
 				<td>파일</td>
@@ -62,7 +61,6 @@
 		</table>
 	</form:form>
 	<div>
-		<button type="button" id="btnDelete">사진삭제</button>
 		<button type="button" id="btnModify">Modify</button>
 		<button type="button" id="btnList">List</button>
 	</div>

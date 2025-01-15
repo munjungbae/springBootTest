@@ -128,7 +128,7 @@ public class ItemController {
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
-	public String delete(Item item, Model model, HttpServletResponse response, HttpServletRequest request) throws Exception {
+	public String delete(Item item, Model model, HttpServletResponse response) throws Exception {
 		PrintWriter out;
 		
 		String fileName = itemService.getPicture(item.getItemId());
