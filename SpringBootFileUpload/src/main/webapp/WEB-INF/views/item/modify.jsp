@@ -18,7 +18,7 @@
 		$("#btnList").on("click", function() {
 			self.location = "/item/list";
 		});
-		$("#file").on("change", function() {
+		$("#btnDelete").on("click", function() {
 			formObj.attr("action", "/item/delete");
 			formObj.attr("method", "post");
 			formObj.submit();
@@ -46,7 +46,7 @@
 			<tr>
 				<td>파일</td>
 				<td><img src="/item/display?itemId=${item.itemId}" width="410"
-					height="240" id="file"></td>
+					height="240"></td>
 			</tr>
 			<tr>
 				<td>파일</td>
@@ -61,6 +61,7 @@
 		</table>
 	</form:form>
 	<div>
+		<button type="button" id="btnDelete">사진삭제</button>
 		<button type="button" id="btnModify">Modify</button>
 		<button type="button" id="btnList">List</button>
 	</div>
