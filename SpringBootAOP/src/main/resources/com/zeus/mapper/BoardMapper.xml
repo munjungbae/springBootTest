@@ -11,7 +11,7 @@
 		UPDATE aopboard SET title = #{title}, content = #{content} WHERE board_no = #{boardNo}
 </update>
 	<delete id="delete">
-		DELETE FROM aopboard WHERE board_no = #{boardNo}
+		DELETE FROM aopboard WHERE board_no2 = #{boardNo}
 </delete>
 	<select id="list" resultType="Board">
 		<![CDATA[
