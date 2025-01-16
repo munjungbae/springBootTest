@@ -10,8 +10,12 @@
 <title>MyBatis 게시판</title>
 </head>
 <body>
-	<h2>게시글 목록</h2>
-	<a href="/board/register">New</a>
+	<form:form modelAttribute="board" method="POST" action="search">
+		<h2>게시글 목록</h2>
+TITLE : <form:input path="title" />
+		<input type="submit" value="검색" />
+	</form:form>
+	<a href="register">New</a>
 	<table border="1">
 		<tr>
 			<th align="center" width="80">NO</th>
@@ -29,7 +33,8 @@
 				<c:forEach items="${list}" var="board">
 					<tr>
 						<td align="center">${board.boardNo}</td>
-						<td align="left"><a href='/board/read?boardNo=${board.boardNo}'>${board.title}</a></td>
+						<td align="left"><a
+							href='/board/read?boardNo=${board.boardNo}'>${board.title}</a></td>
 						<td align="right">${board.writer}</td>
 						<td align="center"><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 								value="${board.regDate}" /></td>
@@ -38,5 +43,6 @@
 			</c:otherwise>
 		</c:choose>
 	</table>
+
 </body>
 </html>
