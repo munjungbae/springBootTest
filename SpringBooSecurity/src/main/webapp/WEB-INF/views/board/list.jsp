@@ -9,5 +9,9 @@
 <body>
 	<h3>게시글 목록 : 모두가 접근 가능</h3>
 	<a href="/board/register">게시글 등록</a>
+	<form action="/logout" method="post">
+		<sec:csrfInput />
+		<button>로그아웃</button>
+	</form>
 </body>
 </html>
