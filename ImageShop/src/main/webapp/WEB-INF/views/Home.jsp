@@ -13,7 +13,7 @@
 	<aside>
 		<div class="img_change">
 			<i class="fa-solid fa-caret-left"></i> 
-			<img src="./img/Zoo1.png" alt="" class="banner_change">
+			<img alt="123" src="/image/zoo1.png">
 			<i class="fa-solid fa-caret-right"></i>
 		</div>
 	</aside>

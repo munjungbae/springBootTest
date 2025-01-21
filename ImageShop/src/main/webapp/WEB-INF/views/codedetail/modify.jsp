@@ -43,7 +43,6 @@
 				<spring:message code="action.list" />
 			</button>
 		</div>
-
 	</main>
 	<jsp:include page="../common/Footer.jsp" />
 	<script>
