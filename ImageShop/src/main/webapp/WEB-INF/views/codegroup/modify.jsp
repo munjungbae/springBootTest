@@ -14,13 +14,13 @@
 	<jsp:include page="../common/Menu.jsp" />
 	<main align="center">
 		<h2>
-			<spring:message code="codegroup.header.register" />
+			<spring:message code="codegroup.header.modify" />
 		</h2>
-		<form:form modelAttribute="codeGroup" action="/codegroup/register">
+		<form:form modelAttribute="codeGroup" action="/codegroup/modify" mothod="post">
 			<table align="center">
 				<tr>
 					<td><spring:message code="codegroup.groupCode" /></td>
-					<td><form:input path="groupCode" /></td>
+					<td><form:input path="groupCode" readonly="true"/></td>
 					<td><font color="red"><form:errors path="groupCode" /></font></td>
 				</tr>
 				<tr>
@@ -31,19 +31,20 @@
 			</table>
 		</form:form>
 		<div>
-			<button type="submit" id="btnRegister">
-				<spring:message code="action.register" />
+			<button type="button" id="btnModify">
+				<spring:message code="action.modify" />
 			</button>
-			<button type="submit" id="btnList">
+			<button type="button" id="btnList">
 				<spring:message code="action.list" />
 			</button>
 		</div>
+
 	</main>
 	<jsp:include page="../common/Footer.jsp" />
 	<script>
 		$(document).ready(function() {
 			var formObj = $("#codeGroup");
-			$("#btnRegister").on("click", function() {
+			$("#btnModify").on("click", function() {
 				formObj.submit();
 			});
 			$("#btnList").on("click", function() {

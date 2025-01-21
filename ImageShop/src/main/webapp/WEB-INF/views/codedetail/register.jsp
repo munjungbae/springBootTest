@@ -14,35 +14,41 @@
 	<jsp:include page="../common/Menu.jsp" />
 	<main align="center">
 		<h2>
-			<spring:message code="codegroup.header.register" />
+			<spring:message code="codedetail.header.register" />
 		</h2>
-		<form:form modelAttribute="codeGroup" action="/codegroup/register">
+		<form:form modelAttribute="codeDetail" action="/codedetail/register" method="post">
 			<table align="center">
 				<tr>
-					<td><spring:message code="codegroup.groupCode" /></td>
-					<td><form:input path="groupCode" /></td>
+					<td><spring:message code="codedetail.groupCode" /></td>
+					<td><form:select path="groupCode" items="${groupCodeList}" itemValue="value" itemLabel="label" /></td>
 					<td><font color="red"><form:errors path="groupCode" /></font></td>
 				</tr>
 				<tr>
-					<td><spring:message code="codegroup.groupName" /></td>
-					<td><form:input path="groupName" /></td>
-					<td><font color="red"><form:errors path="groupName" /></font></td>
+					<td><spring:message code="codedetail.codeValue" /></td>
+					<td><form:input path="codeValue" /></td>
+					<td><font color="red"><form:errors path="codeValue" /></font></td>
+				</tr>
+				<tr>
+					<td><spring:message code="codedetail.codeName" /></td>
+					<td><form:input path="codeName" /></td>
+					<td><font color="red"><form:errors path="codeName" /></font></td>
 				</tr>
 			</table>
 		</form:form>
 		<div>
-			<button type="submit" id="btnRegister">
+			<button type="button" id="btnRegister">
 				<spring:message code="action.register" />
 			</button>
-			<button type="submit" id="btnList">
+			<button type="button" id="btnList">
 				<spring:message code="action.list" />
 			</button>
 		</div>
+
 	</main>
 	<jsp:include page="../common/Footer.jsp" />
 	<script>
 		$(document).ready(function() {
-			var formObj = $("#codeGroup");
+			var formObj = $("#codeDetail");
 			$("#btnRegister").on("click", function() {
 				formObj.submit();
 			});

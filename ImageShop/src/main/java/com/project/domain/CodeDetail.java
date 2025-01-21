@@ -5,9 +5,11 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-public class CodeGroup {
+public class CodeDetail {
 	private String groupCode;
-	private String groupName;
+	private String codeValue;
+	private String codeName;
+	private int sortSeq;
 	private String useYn;
 	private Date regDate;
 	private Date updDate;
