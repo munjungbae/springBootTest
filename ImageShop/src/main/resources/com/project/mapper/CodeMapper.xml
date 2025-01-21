@@ -6,4 +6,9 @@
 		resultType="com.project.common.domain.CodeLabelValue">
 		SELECT group_code AS value, group_name AS label FROM code_group WHERE use_yn = 'Y' ORDER BY group_name
 </select>
+
+	<select id="getCodeList" resultType="com.project.common.domain.CodeLabelValue">
+		SELECT code_value AS value, code_name AS label FROM code_detail WHERE group_code = #{groupCode} AND use_yn = 'Y' ORDER BY sort_seq
+	</select>
+
 </mapper>
