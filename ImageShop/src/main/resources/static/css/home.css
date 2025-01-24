@@ -55,7 +55,17 @@ a {
 
 .register {
 	position: relative;
-	left: 950px;
+	text-align: right;
+	left: 935px;
+}
+
+.coin {
+	position: absolute;
+	text-align: right;
+	top: 30px;
+	width: 150px;
+	right: 0px;
+	z-index: 1;
 }
 
 .main {

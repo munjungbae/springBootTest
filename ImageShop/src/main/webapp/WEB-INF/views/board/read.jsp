@@ -74,15 +74,15 @@
 </body>
 <script>
 	$(document).ready(function() {
-		var formObj = $("#board");
+		let formObj = $("#board");
 		// 현재 페이지 번호와 페이징 크기
-		var pageObj = $("#page");
-		var sizePerPageObj = $("#sizePerPage");
-		var pageVal = pageObj.val();
-		var sizePerPageVal = sizePerPageObj.val();
+		let pageObj = $("#page");
+		let sizePerPageObj = $("#sizePerPage");
+		let pageVal = pageObj.val();
+		let sizePerPageVal = sizePerPageObj.val();
 		$("#btnEdit").on("click", function() {
-			var boardNo = $("#boardNo");
-			var boardNoVal = boardNo.val();
+			let boardNo = $("#boardNo");
+			let boardNoVal = boardNo.val();
 			self.location = "/board/modify?page="+pageVal+"&sizePerPage="+sizePerPageVal+"&boardNo=" + boardNoVal;
 		});
 		$("#btnRemove").on("click", function() {

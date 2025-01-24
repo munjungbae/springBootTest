@@ -21,7 +21,7 @@
 			<table class="user_table">
 				<tr>
 					<td><spring:message code="codedetail.groupCode" /></td>
-					<td><form:select path="groupCode" items="${groupCodeList}" itemValue="value" itemLabel="label"/></td>
+					<td><form:select path="groupCode" items="${groupCodeList}" itemValue="value" itemLabel="label" /></td>
 					<td><font color="red"><form:errors path="groupCode" /></font></td>
 				</tr>
 				<tr>
@@ -48,7 +48,7 @@
 	<jsp:include page="../common/Footer.jsp" />
 	<script>
 		$(document).ready(function() {
-			var formObj = $("#codeDetail");
+			let formObj = $("#codeDetail");
 			$("#btnModify").on("click", function() {
 				formObj.submit();
 			});

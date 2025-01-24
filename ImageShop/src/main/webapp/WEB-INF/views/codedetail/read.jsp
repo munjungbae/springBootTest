@@ -57,7 +57,7 @@
 <script>
 	$(document).ready(
 			function() {
-				var formObj = $("#codeDetail");
+				let formObj = $("#codeDetail");
 				$("#btnEdit").on(
 						"click",
 						function() {
@@ -67,10 +67,10 @@
 							
 							//이미 위에서 get방식으로 선언하였기 때문에 아래 self.location 보내기 위한 var 설정은 굳이 필요가 없음.
 							//url에서 필요한 정보만 보여주게 하기 위해 해당처럼 변경 가능
-							var groupCode = $("#groupCode");
-							var groupCodeVal = groupCode.val();
-							var codeValue = $("#codeValue");
-							var codeValueVal = codeValue.val();
+							let groupCode = $("#groupCode");
+							let groupCodeVal = groupCode.val();
+							let codeValue = $("#codeValue");
+							let codeValueVal = codeValue.val();
 							self.location = "modify?groupCode=" + groupCodeVal
 									+ "&" + "codeValue=" + codeValueVal;
 						});

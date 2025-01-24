@@ -16,6 +16,9 @@
 페이지로 이동할 수 있게 한다. -->
 		<sec:authorize access="isAuthenticated()">
 			<td width="180"><sec:authentication property="principal.username" /> 님 <a href="/auth/logout"> <spring:message code="header.logout" /></a></td>
+			<div class="coin">
+				<sec:authentication property="principal.member.coin" /> 원
+			</div>
 		</sec:authorize>
 	</tr>
 </table>

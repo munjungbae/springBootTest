@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.project.domain.Member;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -20,6 +22,8 @@ public class HomeController {
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		String formattedDate = dateFormat.format(date);
+		Member member = new Member();
+		
 		model.addAttribute("serverTime", formattedDate);
 		return "Home";
 	}

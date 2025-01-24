@@ -78,7 +78,7 @@
 	<jsp:include page="../common/Footer.jsp" />
 </body>
 <script>
-	var result = "${msg}";
+	let result = "${msg}";
 	if (result === "SUCCESS") {
 		alert("<spring:message code='common.processSuccess' />");
 	}

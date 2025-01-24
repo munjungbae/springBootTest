@@ -85,7 +85,7 @@
  -->
 	<script>
 		$(document).ready(function() {
-			var formObj = $("#board");
+			let formObj = $("#board");
 			$("#btnModify").on("click", function() {
 				formObj.submit();
 			});
