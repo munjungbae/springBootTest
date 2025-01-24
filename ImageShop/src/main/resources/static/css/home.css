@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	width: 1100px;
+	position: relative;
+	left: 400px;
+}
+
+a {
+	text-decoration: none;
+}
+
+#img_zoo {
+	position: relative;
+	width: 1100px;
+	height: 400px;
+	left: 0px;
+}
+
+.fa-caret-right {
+	position: absolute;
+	cursor: pointer;
+	z-index: 1;
+	padding-left: 200px;
+	right: 0px;
+	height: 400px;
+	color: rgba(0, 0, 0, 0);
+}
+
+.fa-caret-left {
+	position: absolute;
+	cursor: pointer;
+	z-index: 1;
+	padding-right: 200px;
+	left: 0px;
+	height: 400px;
+	color: rgba(0, 0, 0, 0);
+	position: absolute;
+}
+
+.menu {
+	display: flex;
+	justify-content: center;
+}
+
+.menu_table {
+	position: relative;
+	padding: 15px;
+}
+
+.register {
+	position: relative;
+	text-align: right;
+	left: 935px;
+}
+
+.coin {
+	position: absolute;
+	text-align: right;
+	top: 30px;
+	width: 150px;
+	right: 0px;
+	z-index: 1;
+}
+
+.main {
+	position: relative;
+	left: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.footer {
+	position: relative;
+	left: 450px;
+	display: flex;
+	flex-direction: column;
+	margin: 20px 0px;
+}
