@@ -10,6 +10,9 @@ import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.RequestCache;
 import org.springframework.security.web.savedrequest.SavedRequest;
 
+import com.project.common.sercurity.domain.CustomUser;
+import com.project.domain.Member;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -21,26 +24,22 @@ public class CustomLoginSuccessHandler extends SavedRequestAwareAuthenticationSu
 
 	RequestCache requestCache = new HttpSessionRequestCache();
 
-	
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication auth)
 			throws IOException, ServletException {
-		log.info("onAuthenticationSuccess");
-		User customUser = (User) auth.getPrincipal();
-		log.info("username = " + customUser.getUsername());
-		// 인증 과정에서 발생한 예외 정보를 세션에서 제거
-		clearAuthenticationAttribute(request);
-		// 사용자가 인증되기 전에 접근을 시도했던 요청을 가져온다
+		CustomUser customUser = (CustomUser) auth.getPrincipal();
+		Member member = customUser.getMember();
+		log.info("Userid = " + member.getUserId());
+		// 이전에 저장된 요청을 가져온다.
 		SavedRequest savedRequest = requestCache.getRequest(request, response);
-		if (savedRequest != null) {
-			String targetUrl = savedRequest.getRedirectUrl();
-			log.info("savedRquest = " + savedRequest);
-			log.info("Login Success targetUrl = " + targetUrl);
-			response.sendRedirect(targetUrl);
-
-		} else {
-			response.sendRedirect("/");
+		if (savedRequest == null) {
+			// 저장된 요청이 없으면 기본 페이지로 이동한다.
+			response.sendRedirect(request.getContextPath() + "/");
+			return;
 		}
+		// 저장된 요청으로 리다이렉트한다.
+		String targetUrl = savedRequest.getRedirectUrl();
+		response.sendRedirect(targetUrl);
 	}
 
 	// 인증 과정에서 발생한 예외 정보를 세션에서 제거합니다.

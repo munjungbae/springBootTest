@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/css/user.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/test.js"></script>
 <title>Image Shop</title>
@@ -18,7 +19,7 @@
 			<spring:message code="user.header.register" />
 		</h2>
 		<form:form modelAttribute="member" action="register">
-			<table align="center">
+			<table class="user_table">
 				<tr>
 					<td><spring:message code="user.userId" /></td>
 					<td><form:input path="userId" /></td>
@@ -57,11 +58,13 @@
 	$(document).ready(function() {
 		var formObj = $("#member");
 		$("#btnRegister").on("click", function()
-				{formObj.submit();
+				{
+			formObj.submit();
 		});
 		<sec:authorize access="hasRole('ROLE_ADMIN')">
 			$("#btnList").on("click", function()
-					{self.location = "list";
+					{
+				self.location = "list";
 			});
 		</sec:authorize>
 	});

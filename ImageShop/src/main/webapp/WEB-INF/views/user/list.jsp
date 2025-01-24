@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/css/user.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/test.js"></script>
 <title>Image Shop</title>
@@ -16,45 +17,45 @@
 	<jsp:include page="../common/Menu.jsp" />
 	<main align="center">
 		<h2>
-			<spring:message code="codedetail.header.list" />
+			<spring:message code="user.header.list" />
 		</h2>
 		<a href="register"><spring:message code="action.new" /></a>
-		<table border="1" align="center">
+		<table border="1" class="user_table">
 			<tr>
-				<th align="center" width="160"><spring:message code="codedetail.groupCode" /></th>
-				<th align="center" width="160"><spring:message code="codedetail.codeValue" /></th>
-				<th align="center" width="160"><spring:message code="codedetail.codeName" /></th>
-				<th align="center" width="160"><spring:message code="codedetail.sortSeq" /></th>
-				<th align="center" width="180"><spring:message code="codedetail.regdate" /></th>
+				<th align="center" width="60"><spring:message code="user.no" /></th>
+				<th align="center" width="80"><spring:message code="user.userId" /></th>
+				<th align="center" width="300"><spring:message code="user.userPw" /></th>
+				<th align="center" width="100"><spring:message code="user.userName" /></th>
+				<th align="center" width="100"><spring:message code="user.job" /></th>
+				<th align="center" width="180"><spring:message code="user.regdate" /></th>
 			</tr>
 			<c:choose>
 				<c:when test="${empty list}">
 					<tr>
-						<td colspan="5"><spring:message code="common.listEmpty" /></td>
+						<td colspan="6"><spring:message code="common.listEmpty" /></td>
 					</tr>
 				</c:when>
 				<c:otherwise>
-					<c:forEach items="${list}" var="codeDetail">
+					<c:forEach items="${list}" var="member">
 						<tr>
-							<td align="center">${codeDetail.groupCode}</td>
-							<td align="center">${codeDetail.codeValue}</td>
-							<td align="center"><a href="/codedetail/read?groupCode=${codeDetail.groupCode}&codeValue=${codeDetail.codeValue}">${codeDetail.codeName}</a></td>
-							<td align="center">${codeDetail.sortSeq}</td>
-							<td align="center"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${codeDetail.regDate}" /></td>
+							<td align="center">${member.userNo}</td>
+							<td align="center"><a href='/user/read?userNo=${member.userNo}'>${member.userId}</a></td>
+							<td align="left">${member.userPw}</td>
+							<td align="right">${member.userName}</td>
+							<td align="right">${member.job}</td>
+							<td align="center"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${member.regDate}" /></td>
 						</tr>
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
 		</table>
-
+		<script>
+			let result = "${msg}";
+			if (result === "SUCCESS") {
+				alert("<spring:message code='common.processSuccess' />");
+			}
+		</script>
 	</main>
 	<jsp:include page="../common/Footer.jsp" />
-
 </body>
-<script>
-	var result = "${msg}";
-	if (result === "SUCCESS") {
-		alert("<spring:message code='common.processSuccess' />");
-	}
-</script>
 </html>

@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/css/user.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/test.js"></script>
 <title>Image Shop</title>
@@ -19,7 +20,7 @@
 			<spring:message code="codedetail.header.list" />
 		</h2>
 		<a href="register"><spring:message code="action.new" /></a>
-		<table border="1" align="center">
+		<table border="1" class="user_table">
 			<tr>
 				<th align="center" width="160"><spring:message code="codedetail.groupCode" /></th>
 				<th align="center" width="160"><spring:message code="codedetail.codeValue" /></th>

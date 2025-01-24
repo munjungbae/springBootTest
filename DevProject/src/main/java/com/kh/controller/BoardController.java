@@ -47,7 +47,7 @@ public class BoardController {
 		return entity;
 
 	}
-
+	
 	@PutMapping(value = "/{boardNo}")
 	public ResponseEntity<String> modify(@PathVariable("boardNo") int boardNo, @RequestBody Board board) {
 

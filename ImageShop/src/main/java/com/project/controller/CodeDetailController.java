@@ -3,6 +3,7 @@ package com.project.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,11 +13,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.project.common.domain.CodeLabelValue;
 import com.project.domain.CodeDetail;
 import com.project.service.CodeDetailService;
-import com.project.service.CodeGroupService;
 import com.project.service.CodeService;
 
 @Controller
 @RequestMapping("/codedetail")
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 public class CodeDetailController {
 
 	// code_group 테이블에서 사용되어 있다 표시된 (use_yn = y) 인 그룹 이름을 관리하기 위한 도메인
